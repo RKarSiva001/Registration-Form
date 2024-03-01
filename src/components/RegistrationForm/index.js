@@ -11,9 +11,9 @@ class RegistrationForm extends Component {
     errorMsg: '*Required',
   }
 
-  submitForm = async event => {
+  submitForm = event => {
     event.preventDefault()
-    const {firstname, lastname} = this.state
+    {this.renderRegistrationSuccess()}
   }
 
   onChangeFirstname = event => {
@@ -70,6 +70,18 @@ class RegistrationForm extends Component {
     )
   }
 
+  renderRegistrationSuccess = () => {
+      return (
+          <>
+          <img src="https://assets.ccbp.in/frontend/react-js/success-icon-img.png" alt="success" />
+          <p>SUbmitted Successfully</p>
+          <button type="submit" className="submit-button">
+            Submit Another Response
+          </button>
+          </>
+      )
+  } 
+
   render() {
     return (
       <div className="submit-form-container">
@@ -77,7 +89,7 @@ class RegistrationForm extends Component {
         <form className="form-container" onSubmit={this.submitForm}>
           <div className="input-container">{this.renderFirstnameField()}</div>
           <div className="input-container">{this.renderLastnameField()}</div>
-          <button type="submit" className="submit-button">
+          <button type="submit" className="submit-button" >
             Submit
           </button>
         </form>
